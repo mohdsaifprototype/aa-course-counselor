@@ -1,82 +1,52 @@
-//
+import { courseCategories, courses } from './data.js';
 
 let selectedCourse = null;
-
-const courseCategories = {
-  Short: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"],
-  Mid: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"],
-  Long: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"]
-};
-
-const courses = [
-  //short-graphic-courses
-  { name: "Graphic Design Prime", category: "Graphic Design", duration: "Short",  months: 6, courseCode: "OV-3135-GDP", totalFees: 500, registrationFees: 50, downPayment: 100, lumpSum: 450, installments: 10, month: 8, totalSubmission: 500, monthlyInstallments_1: 50, monthlyInstallments_2: 50, monthlyInstallments_3: 50, terms: 2, term1: "Design Principles", term2: "Typography" },
-  { name: "Graphic Designing", category: "Graphic Design", duration: "Short", months: 12, courseCode: "OV-606-GD", totalFees: 800, registrationFees: 80, downPayment: 150, lumpSum: 700, installments: 15, month: 9, totalSubmission: 800, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 2, term1: "Branding", term2: "Illustration" },
-  { name: "Graphic Design for Web", category: "Graphic Design", duration: "Short",  months: 6, courseCode: "OV-3161-GDW", totalFees: 300, registrationFees: 30, downPayment: 60, lumpSum: 240, installments: 6, month: 4, totalSubmission: 300, monthlyInstallments_1: 50, monthlyInstallments_2: 50, monthlyInstallments_3: 50, terms: 2, term1: "HTML Basics", term2: "CSS Styling" },
-  { name: "Web Design", category: "Graphic Design", duration: "Short", months: 12, courseCode: "OV-3161-WD", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Graphic Art and ", category: "Graphic Design", duration: "Short", months: 12, courseCode: "OV-658-GAI", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Photoshop", category: "Graphic Design", duration: "Short", months: 6, courseCode: "OV-588-Ph", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Media Publishing", category: "Graphic Design", duration: "Short", months: 12, courseCode: "OV-626-MP", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "ACAP-Design and Visiualisation", category: "Graphic Design", duration: "Short", months: 12, courseCode: "OV-3156-ACVP-DV", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  //mid-graphic-courses
-  { name: "Graphics, Web Designing and Development", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-3161-GWDD", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "3D Motion Graphics Design Prime", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-655-3dMGDPr", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Motion Graphics Design", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-646-MGD", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Advanced Digital Graphics and Animation", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-3167-ADGA", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Digital Content Creation", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-3165-DCC", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Digital Content Creation Motion Design", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-3165-DCC-MD", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Digital Content Creation-UI-Design", category: "Graphic Design", duration: "Mid", months: 12, courseCode: "OV-3165-DCC-UID", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  //short-3d-courses
-  { name: "Advanced 3D Animation", category: "3D Animation", duration: "Short", months: 12, courseCode: "OV-596-Adv", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "Basics of 3D Animation", category: "3D Animation", duration: "Short", months: 12, courseCode: "OV-634-B3DA", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-  { name: "PBR Texturing Workflow with Substance Painter", category: "3D Animation", duration: "Short", months: 12, courseCode: "OV-659-PBRTW", totalFees: 700, registrationFees: 70, downPayment: 100, lumpSum: 600, installments: 12, month: 5, totalSubmission: 700, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "JavaScript Fundamentals", term2: "DOM Manipulation", term3: "API Integration" },
-
-  //long-3d-courses
-  { name: "Trinity 3d Game", category: "3D Animation", duration: "Long",  months: 24, courseCode: "OV-3105-ANIVFGAM", totalFees: 600, registrationFees: 60, downPayment: 120, lumpSum: 500, installments: 10, month: 6, totalSubmission: 600, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 2, term1: "Modeling Basics", term2: "Texturing" },
-  { name: "ACAP-Advanced 3D Animation", category: "3D Animation", duration: "Long",  months: 24, courseCode: "OV-3155-ACAP-A3DA", totalFees: 1500, registrationFees: 100, downPayment: 200, lumpSum: 1300, installments: 20, month: 7, totalSubmission: 1500, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "Modeling Basics", term2: "Lighting", term3: "Rendering" },
-  { name: "Arena Certified Professional in 3D Animation (Term1 + 2)", category: "3D Animation", duration: "Long",  months: 24, courseCode: "OV-3159-ACAP-3DA", totalFees: 1500, registrationFees: 100, downPayment: 200, lumpSum: 1300, installments: 20, month: 7, totalSubmission: 1500, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "Modeling Basics", term2: "Lighting", term3: "Rendering" },
-  { name: "Arena Certified Professional in Animation vfx and Gaming", category: "3D Animation", duration: "Long",  months: 24, courseCode: "OV-3142-ACP-AVFXG", totalFees: 1500, registrationFees: 100, downPayment: 200, lumpSum: 1300, installments: 20, month: 7, totalSubmission: 1500, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "Modeling Basics", term2: "Lighting", term3: "Rendering" },
-  { name: "B.voc(VFA)", category: "3D Animation", duration: "Long",  months: 24, courseCode: "OV-3108 B.voc FM", totalFees: 1500, registrationFees: 100, downPayment: 200, lumpSum: 1300, installments: 20, month: 7, totalSubmission: 1500, monthlyInstallments_1: 60, monthlyInstallments_2: 60, monthlyInstallments_3: 60, terms: 3, term1: "Modeling Basics", term2: "Lighting", term3: "Rendering" }
-];
-
 let filteredCourses = [];
 
 // Function to show courses based on the selected duration
 function showCategoriesByDuration() {
-  document.getElementById('interest').value = '';
   const selectedDuration = document.getElementById("duration").value;
-  const dropdown = document.getElementById("dropdown");
-  dropdown.innerHTML = ""; // Clear previous options
-
-  dropdown.style.display = "none"; // Hide dropdown initially
+  const interestSelect = document.getElementById("interest");
+  interestSelect.innerHTML = ""; // Clear previous options
 
   if (selectedDuration) {
     filteredCourses = courses.filter(course => course.duration === selectedDuration);
     const categories = courseCategories[selectedDuration];
 
     // Display categories based on the selected duration
+    const allOption = document.createElement("option");
+    allOption.value = "All";
+    allOption.textContent = "All Courses";
+    interestSelect.appendChild(allOption);
+
     categories.forEach((category) => {
-      const categoryOption = document.createElement("div");
+      const categoryOption = document.createElement("option");
+      categoryOption.value = category;
       categoryOption.textContent = category;
-      categoryOption.onclick = () => selectCategory(category); 
-      dropdown.appendChild(categoryOption);
+      interestSelect.appendChild(categoryOption);
     });
 
     displayCourses(filteredCourses);
 
     const resultText = document.getElementById("result-text");
     resultText.style.display = filteredCourses.length > 0 ? "block" : "none"; 
+  } else {
+    displayCourses([]); // Clear courses if no duration is selected
   }
 }
 
 // Function to filter and display courses based on selected category
-function selectCategory(category) {
-  document.getElementById("interest").value = category;
-  document.getElementById("dropdown").style.display = "none";
+function selectCategory() {
+  const category = document.getElementById("interest").value;
 
-  const filteredByCategory = filteredCourses.filter(course =>
-    course.category === category
-  );
+  let filteredByCategory;
+  if (category === "All") {
+    filteredByCategory = filteredCourses;
+  } else {
+    filteredByCategory = filteredCourses.filter(course =>
+      course.category === category
+    );
+  }
 
   displayCourses(filteredByCategory); // Display filtered courses
 
@@ -120,18 +90,31 @@ function showCourseDetail(courseName) {
     <td>${selectedCourse.courseCode}</td>
     <td>${selectedCourse.name}</td>
     <td>${selectedCourse.months} months</td> <!-- Duration in months -->
-    <td>${selectedCourse.terms || "N/A"}</td>
+    <td>${selectedCourse.terms.filter(term => term).length || "N/A"}</td>
   `;
 
-  if (selectedCourse.terms > 0) {
-    document.getElementById("course-detail-table5").style.display = "block";
-    document.getElementById("course-detail-table5-content").innerHTML = `
-      <td>${selectedCourse.term1 || "N/A"}</td>
-      <td>${selectedCourse.term2 || "N/A"}</td>
-      <td>${selectedCourse.term3 || "N/A"}</td>
-    `;
+  if (selectedCourse.terms.filter(term => term).length > 0) {
+    document.getElementById("course-detail-accordion").style.display = "block";
+    const accordionContent = document.getElementById("course-detail-accordion-content");
+    accordionContent.innerHTML = "";
+
+    selectedCourse.terms.forEach((termContent, index) => {
+      if (termContent) {
+        accordionContent.innerHTML += `
+          <div class="accordion-item">
+            <button class="accordion-button">Term ${index + 1}</button>
+            <div class="accordion-content">
+              <ul>
+                <li>${termContent}</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+    });
+    setupAccordion();
   } else {
-    document.getElementById("course-detail-table5").style.display = "none";
+    document.getElementById("course-detail-accordion").style.display = "none";
   }
 
   document.getElementById("course-detail-table2").innerHTML = `
@@ -156,6 +139,17 @@ function showCourseDetail(courseName) {
   document.getElementById("course-detail-section").style.display = "block";
 }
 
+// Function to setup accordion behavior
+function setupAccordion() {
+  const accordionButtons = document.querySelectorAll(".accordion-button");
+  accordionButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      const content = this.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
+}
+
 // Function to go back to the course list
 function goBack() {
   document.getElementById("course-detail-section").style.display = "none";
@@ -164,12 +158,24 @@ function goBack() {
 // Show dropdown when Search by Interest field is clicked
 document.getElementById("interest").addEventListener("focus", function() {
   const dropdown = document.getElementById("dropdown");
-  dropdown.style.display = "block";
+  if (dropdown) {
+    dropdown.style.display = "block";
+  }
 });
 
 // Hide dropdown when clicking anywhere else
 document.addEventListener("click", function(event) {
-  if (!event.target.closest("#interest") && !event.target.closest("#dropdown")) {
-    document.getElementById("dropdown").style.display = "none";
+  const dropdown = document.getElementById("dropdown");
+  if (dropdown && !event.target.closest("#interest") && !event.target.closest("#dropdown")) {
+    dropdown.style.display = "none";
   }
 });
+
+// Show categories when Search by Interest field is changed
+document.getElementById("interest").addEventListener("change", selectCategory);
+
+// Ensure functions are accessible globally
+window.showCategoriesByDuration = showCategoriesByDuration;
+window.selectCategory = selectCategory;
+window.showCourseDetail = showCourseDetail;
+window.goBack = goBack;
