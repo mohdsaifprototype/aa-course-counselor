@@ -155,6 +155,7 @@ function showCourseDetail(courseName) {
     <td>${formatAmount(selectedCourse.totalFees)}</td>
     <td>${formatAmount(selectedCourse.registrationFees)}</td>
     <td>${formatAmount(selectedCourse.downPayment)}</td>
+    <td>${formatAmount(selectedCourse.lumpSum) || "N/A"}</td>
   `;
 
   // Calculate yearly installments for long-term courses
@@ -172,7 +173,6 @@ function showCourseDetail(courseName) {
 
   // Update installment methods table (matching HTML structure)
   document.getElementById("course-detail-table3").innerHTML = `
-    <td>${formatAmount(selectedCourse.lumpSum) || "N/A"}</td>
     <td>${yearlyPayments}</td>
     <td>${
       selectedCourse.months <= 9
