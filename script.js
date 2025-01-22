@@ -1,4 +1,15 @@
-import { courseCategories, courses } from './data.js';
+import { courseCategories, courses } from "./data.js";
+
+// Helper function to format currency amounts
+function formatAmount(amount) {
+  if (!amount) return "N/A";
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
+}
 
 let selectedCourse = null;
 let filteredCourses = [];
@@ -7,18 +18,21 @@ let filteredCourses = [];
 function showCategoriesByDuration() {
   const selectedDuration = document.getElementById("duration").value;
   const interestSelect = document.getElementById("interest");
-  interestSelect.innerHTML = ""; // Clear previous options
+  interestSelect.innerHTML = "";
 
   if (selectedDuration) {
-    filteredCourses = courses.filter(course => course.duration === selectedDuration);
+    filteredCourses = courses.filter(
+      (course) => course.duration === selectedDuration
+    );
     const categories = courseCategories[selectedDuration];
 
-    // Display categories based on the selected duration
+    // Add "All Courses" option
     const allOption = document.createElement("option");
     allOption.value = "All";
     allOption.textContent = "All Courses";
     interestSelect.appendChild(allOption);
 
+    // Add category options
     categories.forEach((category) => {
       const categoryOption = document.createElement("option");
       categoryOption.value = category;
@@ -27,12 +41,12 @@ function showCategoriesByDuration() {
     });
 
     displayCourses(filteredCourses);
-
-    const resultText = document.getElementById("result-text");
-    resultText.style.display = filteredCourses.length > 0 ? "block" : "none"; 
   } else {
-    displayCourses([]); // Clear courses if no duration is selected
+    displayCourses([]);
   }
+
+  const resultText = document.getElementById("result-text");
+  resultText.style.display = filteredCourses.length > 0 ? "block" : "none";
 }
 
 // Function to filter and display courses based on selected category
@@ -43,33 +57,45 @@ function selectCategory() {
   if (category === "All") {
     filteredByCategory = filteredCourses;
   } else {
-    filteredByCategory = filteredCourses.filter(course =>
-      course.category === category
+    filteredByCategory = filteredCourses.filter(
+      (course) => course.categories.includes(category) // Check if the course belongs to the selected category
     );
   }
 
-  displayCourses(filteredByCategory); // Display filtered courses
+  displayCourses(filteredByCategory);
 
   const resultText = document.getElementById("result-text");
-  resultText.style.display = filteredByCategory.length > 0 ? "block" : "none"; 
-
-  if (filteredByCategory.length === 0) {
-    const courseGrid = document.getElementById("course-grid");
-    courseGrid.innerHTML = "<p>No courses found for the selected category.</p>";
-  }
+  resultText.style.display = filteredByCategory.length > 0 ? "block" : "none";
 }
 
-// Function to display the courses in the grid
+const footer = document.createElement("footer");
+footer.innerHTML = `
+  <div>Made By Shahwaj under the guidance Mohd Saif <a href="https://portfolio.pmsprototype.com/mohd-saif/" target="_blank">(@mohdsaifprototype)</a></div>
+`;
+footer.style.cssText = `
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 12px;
+`;
+document.body.appendChild(footer);
+
+// Function to display courses in the grid
 function displayCourses(coursesToDisplay) {
   const courseGrid = document.getElementById("course-grid");
-  courseGrid.innerHTML = ""; 
+  courseGrid.innerHTML = "";
 
   if (coursesToDisplay.length > 0) {
     coursesToDisplay.forEach((course) => {
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
+      courseCard.setAttribute("onclick", `showCourseDetail('${course.name}')`);
       courseCard.innerHTML = `
-        <h4 onclick="showCourseDetail('${course.name}')">
+        <h4>
           ${course.name} <i class="fa-solid fa-right-long fa-beat"></i>
         </h4>
       `;
@@ -80,32 +106,39 @@ function displayCourses(coursesToDisplay) {
   }
 }
 
-// Function to show the detailed course information
+// Function to show course details
 function showCourseDetail(courseName) {
-  selectedCourse = courses.find(course => course.name === courseName);
-  document.getElementById("course-detail-title").textContent = selectedCourse.name;
+  selectedCourse = courses.find((course) => course.name === courseName);
 
-  // Update the first table with course details
+  document.getElementById("course-detail-title").textContent =
+    selectedCourse.name;
+
+  // Update tables with course details
   document.getElementById("course-detail-table1").innerHTML = `
     <td>${selectedCourse.courseCode}</td>
     <td>${selectedCourse.name}</td>
-    <td>${selectedCourse.months} months</td> <!-- Duration in months -->
-    <td>${selectedCourse.terms.filter(term => term).length || "N/A"}</td>
+    <td>${selectedCourse.months} months</td>
+    <td>${
+      selectedCourse.terms.filter((term) => term.length > 0).length || "N/A"
+    }</td>
   `;
 
-  if (selectedCourse.terms.filter(term => term).length > 0) {
+  // Display terms in accordion
+  if (selectedCourse.terms.some((term) => term.length > 0)) {
     document.getElementById("course-detail-accordion").style.display = "block";
-    const accordionContent = document.getElementById("course-detail-accordion-content");
+    const accordionContent = document.getElementById(
+      "course-detail-accordion-content"
+    );
     accordionContent.innerHTML = "";
 
     selectedCourse.terms.forEach((termContent, index) => {
-      if (termContent) {
+      if (termContent.length > 0) {
         accordionContent.innerHTML += `
           <div class="accordion-item">
             <button class="accordion-button">Term ${index + 1}</button>
             <div class="accordion-content">
               <ul>
-                <li>${termContent}</li>
+                ${termContent.map((item) => `<li>${item}</li>`).join("")}
               </ul>
             </div>
           </div>
@@ -117,23 +150,61 @@ function showCourseDetail(courseName) {
     document.getElementById("course-detail-accordion").style.display = "none";
   }
 
+  // Update payment details with formatted amounts (matching 3-column structure in HTML)
   document.getElementById("course-detail-table2").innerHTML = `
-    <td>${selectedCourse.totalFees}</td>
-    <td>${selectedCourse.registrationFees}</td>
-    <td>${selectedCourse.downPayment}</td>
+    <td>${formatAmount(selectedCourse.totalFees)}</td>
+    <td>${formatAmount(selectedCourse.registrationFees)}</td>
+    <td>${formatAmount(selectedCourse.downPayment)}</td>
   `;
 
+  // Calculate yearly installments for long-term courses
+  const yearlyAmount =
+    selectedCourse.duration === "Long"
+      ? Math.round(
+          selectedCourse.totalFees / Math.ceil(selectedCourse.months / 12)
+        )
+      : null;
+  const yearlyPayments = yearlyAmount
+    ? `${formatAmount(yearlyAmount)} &times; ${Math.ceil(
+        selectedCourse.months / 12
+      )}`
+    : "N/A";
+
+  // Update installment methods table (matching HTML structure)
   document.getElementById("course-detail-table3").innerHTML = `
-    <td>${selectedCourse.lumpSum}</td>
-    <td>${selectedCourse.installments}</td>
-    <td>${selectedCourse.month}</td>
-    <td>${selectedCourse.totalSubmission}</td>
+    <td>${formatAmount(selectedCourse.lumpSum) || "N/A"}</td>
+    <td>${yearlyPayments}</td>
+    <td>${
+      selectedCourse.months <= 9
+        ? "N/A"
+        : formatAmount(selectedCourse.installments)
+    }</td>
+    <td>${
+      selectedCourse.months <= 9
+        ? "N/A"
+        : selectedCourse.totalNoOfQuarterlyInstallments
+    }</td>
+    <td>${
+      selectedCourse.months <= 9
+        ? "N/A"
+        : formatAmount(selectedCourse.totalSubmission)
+    }</td>
   `;
 
+  // Update monthly EMI plans with multiplication signs
   document.getElementById("course-detail-table4").innerHTML = `
-    <td>${selectedCourse.monthlyInstallments_1}</td>
-    <td>${selectedCourse.monthlyInstallments_2}</td>
-    <td>${selectedCourse.monthlyInstallments_3}</td>
+    <td>${formatAmount(selectedCourse.monthlyInstallments_1)} &times; ${
+    selectedCourse.months - 1
+  }</td>
+    <td>${formatAmount(selectedCourse.monthlyInstallments_2)} &times; ${
+    selectedCourse.months - 2
+  }</td>
+    <td>${formatAmount(selectedCourse.monthlyInstallments_3)} &times; ${
+    selectedCourse.months - 3
+  }</td>
+    <td>${formatAmount(selectedCourse.monthlyInstallments_4)} &times; ${
+    selectedCourse.months - 4
+  }</td>
   `;
 
   document.getElementById("course-detail-section").style.display = "block";
@@ -142,10 +213,11 @@ function showCourseDetail(courseName) {
 // Function to setup accordion behavior
 function setupAccordion() {
   const accordionButtons = document.querySelectorAll(".accordion-button");
-  accordionButtons.forEach(button => {
-    button.addEventListener("click", function() {
+  accordionButtons.forEach((button) => {
+    button.addEventListener("click", function () {
       const content = this.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
+      content.style.display =
+        content.style.display === "block" ? "none" : "block";
     });
   });
 }
@@ -156,7 +228,7 @@ function goBack() {
 }
 
 // Show dropdown when Search by Interest field is clicked
-document.getElementById("interest").addEventListener("focus", function() {
+document.getElementById("interest").addEventListener("focus", function () {
   const dropdown = document.getElementById("dropdown");
   if (dropdown) {
     dropdown.style.display = "block";
@@ -164,9 +236,13 @@ document.getElementById("interest").addEventListener("focus", function() {
 });
 
 // Hide dropdown when clicking anywhere else
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
   const dropdown = document.getElementById("dropdown");
-  if (dropdown && !event.target.closest("#interest") && !event.target.closest("#dropdown")) {
+  if (
+    dropdown &&
+    !event.target.closest("#interest") &&
+    !event.target.closest("#dropdown")
+  ) {
     dropdown.style.display = "none";
   }
 });

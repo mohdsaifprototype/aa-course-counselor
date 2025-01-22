@@ -1,507 +1,729 @@
+// Course categories grouped by duration
 export const courseCategories = {
-  Short: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"],
-  Mid: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"],
-  Long: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"]
+  Long: ["3D Animation", "VFX", "Game Design", "Game Development", "Interior/Exterior"],
+  Mid: ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Video/Audio"],
+  Short: ["Graphic Design", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior", "Video/Audio"]
 };
 
-export const listOfCourses = {
-  "OV-3156-ACVP-VE": "ACVP-Visual Effects",
-  "OV-3105-ANIVFGAM": "Trinity 3d Game",
-  "OV-3108 Bvoc FM": "B. Voc (VFA)",
-  "OV-3108 Bvoc GDD": "B. Voc (GDD)",
-  "OV-3159-ACP-VFX COMP": "Arena Certified Professional in Animation and VFX",
-  "OV-3159-ACP-3DA": "Arena Certified Professional in 3D Animation (Term 1 + 2)",
-  "OV-3155-ACAP-3DA": "ACAP-3D Animation  (Term 1 + 2)",
-  "OV-3155-ACAP-A3DA": "ACAP-Advanced 3D Animation",
-  "OV-3142-ACP-AVFXG": "Arena Certified Professional in Animation VFX and Gaming",
-  "OV-3146-GARVRP": "AR-VR PRIME",
-  "OV-3147-ADVPRGGD": "Advanced Program in Game Design",
-  "OV-3148-VDP": "Video Games Professional",
-  "OV-3164-APAVID": "Advanced Program in Architectural Visualization and Interior Design",
-  "OV-3164-3DRT-VE": "3d real Time3DRT – Visual effects",
-  "OV-3164-3DRT-R3D": "3d real Time",
-  "OV-3161-GWDD": "Graphics, Web Design and Development",
-  "OV-655-3dMGDPr": "3D Motion Graphic Design Prime",
-  "OV-3095-UIUXAP": "UI-UX Advanced Program",
-  "OV-3160-VFXCE": "Arena Certified Professional in VFX Compositing and Editing",
-  "OV-3153-CFM": "Creative Film Making",
-  "OV-646-MGD": "Motion Graphics Design",
-  "OV-3106-WDD": "Web design and development",
-  "OV-3167-ADGA": "Advanced Digital Graphics and Animation",
-  "OV-3165-DCC": "Digtal Content Creation",
-  "OV-3165-DCC-MD": "Digital Content Creation - Motion Design",
-  "OV-3165-DCC-UID": "Digital Content Creation - UI Design",
-  "OV-638-DAID": "Digital Architecture and Interior Design",
-  "OV-3135-GDP": "Graphic Design Prime",
-  "OV-3161-GDW": "Graphics Design for Web",
-  "OV-606-GD": "Graphic Designing",
-  "OV-3161-WD": "Web Design",
-  "OV-3095-UIPP": "UI-Professional Program",
-  "OV-3095-UXPP": "UX-Professional Program",
-  "OV-3095-APUIUX": "Advanced Program in UI UX",
-  "OV-3156-ACVP-DV": "ACAP-Design and Visualisation",
-  "OV-596-Adv 3DA": "Advance 3D Animation",
-  "OV-634-B3DA": "Basics of 3D Animation",
-  "OV-659-PBRTW": "PBR Texturing Workflow with Substance Painter",
-  "OV-658-GAI": "Graphic Art and Illustrations (Illustrator)",
-  "OV-588-Ph": "Photoshop",
-  "OV-592-VE": "Video Editing",
-  "OV-593-AVE": "Audio-Video Editing",
-  "OV-599-VFX-AE": "Visual Effect - After Effects",
-  "OV-626-MP": "Media Publishing",
-  "OV-600-Vfx-Nuke": "Visual Effect - Nuke",
-  "OV-3128-UGD": "Unreal Game Development",
-  "OV-654-URC": "Unreal Cinematics"
-};
+// Course class definition
+class Course {
+  constructor(courseCode, name, duration, months, categories, totalFees, lumpSum, terms, degree = false) {
+    this.courseCode = courseCode;
+    this.name = name;
+    this.duration = duration;
+    this.months = months;
+    this.categories = categories; // Changed to accept multiple categories
+    this.totalFees = totalFees;
+    this.registrationFees = 5900; // Fixed registration fee
+    this.downPayment = 30000;     // Fixed down payment
+    this.lumpSum = lumpSum;
+    this.terms = terms;
+    this.degree = degree;
+  }
 
-export const coursesList = ["Graphic Design", "2D Animation", "3D Animation", "VFX", "Graphic Web Design and Development", "Motion Graphic Design", "UI/UX", "Game Design", "Game Development", "Interior/Exterior Design", "Video/Audio"];
+  get totalSubmission() {
+    return this.totalFees - this.downPayment;
+  }
 
-export const longTerm = {
-  "Graphic Design": null,
-  "2D Animation": null,
-  "3D Animation": ["OV-3105-ANIVFGAM", "OV-3155-ACAP-A3DA", "OV-3159-ACAP-3DA", "OV-3142-ACP-AVFXG", "OV-3108 Bvoc FM"],
-  "VFX": ["OV-3156-ACVP-VE", "OV-3105-ANIVFGAM", "OV-3159-ACP-VFX COMP", "OV-3142-ACP-AVFXG", "OV-3164-3DRT-VE", "OV-3108 Bvoc FM"],
-  "Graphic Web Design and Development": null,
-  "Motion Graphic Design": null,
-  "UI/UX": null,
-  "Game Design": ["OV-3105-ANIVFGAM", "OV-3148-VDP", "OV-3147-ADVPRGGD", "OV-3164-3DRT-R3D", "OV-3108 Bvoc GDD", "OV-3146-GARVRP", "OV-3142-ACP-AVFXG"],
-  "Game Development": ["OV-3108 Bvoc GDD", "OV-3148-VDP", "OV-3146-GARVRP"],
-  "Interior/Exterior": ["OV-3164-APAVID", "OV-3164-APAVID"],
-  "Video/Audio": null
-};
+  get totalNoOfQuarterlyInstallments() {
+    if (this.degree) {
+      return this.months / 5;
+    } else {
+      return Math.floor(this.months / 3);
+    }
+  }
 
-export const midTerm = {
-  "Graphic Design": ["OV-3161-GWDD", "OV-655-3dMGDPr", "OV-646-MGD", "OV-3167-ADGA", "OV-3165-DCC", "OV-3165-DCC-MD", "OV-3165-DCC-UID"],
-  "2D Animation": ["OV-646-MGD", "OV-655-3dMGDPr", "OV-3165-DCC-MD"],
-  "3D Animation": ["OV-3167-ADGA"],
-  "VFX": ["OV-3160-VFXCE"],
-  "Graphic Web Design and Development": ["OV-3106-WDD", "OV-3161-GWDD"],
-  "Motion Graphic Design": ["OV-655-3dMGDPr", "OV-3165-DCC", "OV-3165-DCC-MD", "OV-646-MGD"],
-  "UI/UX": ["OV-3095-UIUXAP", "OV-3165-DCC-UID"],
-  "Game Design": null,
-  "Game Development": null,
-  "Interior/Exterior": null,
-  "Video/Audio": ["OV-3153-CFM", "OV-3160-VFXCE"]
-};
+  get installments() {
+    if (this.degree) {
+      return this.totalSubmission / 5;
+    } else {
+      return this.totalSubmission / Math.floor(this.months / 3);
+    }
+  }
 
-export const shortTerm = {
-  "Graphic Design": ["OV-3135-GDP", "OV-606-GD", "OV-3161-GDW", "OV-3161-WD", "OV-658-GAI", "OV-588-Ph", "OV-626-MP", "OV-3156-ACVP-DV"],
-  "2D Animation": null,
-  "3D Animation": ["OV-596-Adv 3DA", "OV-634-B3DA", "OV-659-PBRTW"],
-  "VFX": ["OV-600-Vfx-Nuke", "OV-599-VFX-AE"],
-  "Graphic Web Design and Development": null,
-  "Motion Graphic Design": null,
-  "UI/UX": null,
-  "Game Design": null,
-  "Game Development": null,
-  "Interior/Exterior": null,
-  "Video/Audio": null
-};
+  get monthlyInstallments_1() {
+    return Math.round(this.totalSubmission / (this.months - 1));
+  }
 
-export const terms = {
-  "OV-3156-ACVP-VE": [
-    "Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "Maya, Z-Brush, 3D Equalizer, Golem Crowd, After Effects",
-    "Nuke, Sillhouette, Mocha",
-    "",
-    "",
-    ""
-  ],
-  "OV-3105-ANIVFGAM": [
-    "Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC",
-    "Maya/ Blender, Z-Brush, Game Engine (Unreal or Unity), Substance Painter",
-    "After Effects, 3D Equalizer, Nuke, Sillhouette, Mocha, Houdini",
-    "",
-    "",
-    ""
-  ],
-  "OV-3108 Bvoc FM": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Coral Draw, Indesign",
-    "Adobe Audition CC, Adobe Premier Pro CC, Adobe After Effects",
-    "Web Theory, Animate CC",
-    "3Ds Max",
-    "Maya",
-    "Nuke"
-  ],
-  "OV-3108 Bvoc GDD": [
-    "Adobe Illustrator CC, Adobe Photoshop CC",
-    "Adobe Photoshop CC, Unreal, Blender",
-    "Blender, Substance Painter & Unreal Engine",
-    "Adobe Photoshop CC",
-    "Unreal Engine",
-    ""
-  ],
-  "OV-3159-ACP-VFX COMP": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "Maya, Z-Brush, After Effects",
-    "Nuke, Sillhouette, Mocha",
-    "",
-    "",
-    ""
-  ],
-  "OV-3159-ACP-3DA": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "Maya, Z-Brush, After Effects",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3155-ACAP-3DA": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "3Ds Max",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3155-ACAP-A3DA": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "3Ds Max",
-    "Maya",
-    "",
-    "",
-    ""
-  ],
-  "OV-3142-ACP-AVFXG": [
-    "Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "Maya, Z-Brush, After Effects, XGen, Photogrametary (Agisoft, Metashape/ 3DF Zephyr)",
-    "Unreal Engine",
-    "",
-    "",
-    ""
-  ],
-  "OV-3146-GARVRP": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Animate CC",
-    "Adobe Photoshop CC, Unity, Blender",
-    "Adobe Photoshop, Maya, Zbursh, Substance Painter, Quixel & Unreal Engine",
-    "Adobe Photoshop CC, Unity, Maya/ Blender",
-    "Adobe Photoshop CC, Unreal, Maya/ Blender/Unity",
-    ""
-  ],
-  "OV-3147-ADVPRGGD": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Animate CC",
-    "Blender, Unity3d",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3148-VDP": [
-    "Adobe Photoshop",
-    "Maya, Zbursh, Substance Painter, Quixel & Unreal Engine",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3164-APAVID": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Adobe After Effects ,CC",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3164-3DRT-VE": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Adobe After Effects ,CC",
-    "Maya, Substance Painter, Generative AI",
-    "Nuke, Sillhouette, Mocha",
-    "",
-    "",
-    ""
-  ],
-  "OV-3164-3DRT-R3D": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Adobe After Effects ,CC",
-    "Maya, Substance Painter, Generative AI",
-    "Maya, Z-Brush, XGen, Photogrametary (Agisoft, Metashape/ 3DF Zephyr)",
-    "",
-    "",
-    ""
-  ],
-  "OV-3161-GWDD": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Animate CC",
-    "HTML5, CSS3, Javascript ES7, Angular JS, Bootstrap 5, PHP, Drupal 9",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-655-3dMGDPr": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Indesign Aadobe Premier Pro CC, Photography, Blender",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3095-UIUXAP": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Figma, HTML5, CSS3, Javascript, Angular JS, Bootstrap 5, JQuery, Visual Code, Material Design",
-    "Adobe Illustrator CC, Adobe Photoshop CC, Figma",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3160-VFXCE": [
-    "Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, After Effects, Nuke, Silloute, Mocha, i Clone",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3153-CFM": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-646-MGD": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Adobe After Effects CC",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3106-WDD": [
-    "HTML5, CSS3, Javascript ES7, Angular JS, Bootstrap 5, PHP, Drupal 9",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3167-ADGA": [
-    "Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Adobe After Effects CC",
-    "Maya, Generative AI",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3165-DCC": [
-    "Animate 2D, Adobe Audition CC, Aadobe Premier Pro CC, Adobe After Effects CC",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3165-DCC-MD": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3165-DCC-UID": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-638-DAID": [
-    "Auto Cad, 3Ds Max (Vray)",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3135-GDP": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Animate CC",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3161-GDW": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-606-GD": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Coral Draw, Indesign",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3161-WD": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3095-UIPP": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Figma, HTML5, CSS3, Javascript, Angular JS, Bootstrap 5, JQuery, Visual Code, Material Design",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3095-UXPP": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Figma",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3095-APUIUX": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Figma, WordPress, FigJam, XAMPP",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3156-ACVP-DV": [
-    "Adobe Illustrator CC, Adobe Photoshop CC, Adobe Audition CC, Aadobe Premier Pro CC, Animate CC",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-596-Adv 3DA": [
-    "Maya",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-634-B3DA": [
-    "3Ds Max",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-659-PBRTW": [
-    "Substance Painter",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-658-GAI": [
-    "Adobe illustrator",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-588-Ph": [
-    "Photshop",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-592-VE": [
-    "Premier Pro",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-593-AVE": [
-    "Premier and Audtion",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-599-VFX-AE": [
-    "After Effects",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-626-MP": [
-    "Indesign",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-600-Vfx-Nuke": [
-    "Nuke",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-3128-UGD": [
-    "Unreal Engine",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "OV-654-URC": [
-    "Unreal Engine",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ]
-};
+  get monthlyInstallments_2() {
+    return Math.round(this.totalSubmission / (this.months - 2));
+  }
 
+  get monthlyInstallments_3() {
+    return Math.round(this.totalSubmission / (this.months - 3));
+  }
+
+  get monthlyInstallments_4() {
+    return Math.round(this.totalSubmission / (this.months - 4));
+  }
+}
+
+// Course details
 export const courses = [
-  ...Object.entries(listOfCourses).map(([courseCode, name]) => {
-    const duration = longTerm["3D Animation"].includes(courseCode) ? "Long" :
-                     midTerm["Graphic Design"].includes(courseCode) ? "Mid" :
-                     shortTerm["Graphic Design"].includes(courseCode) ? "Short" : "N/A";
-    const category = coursesList.find(category => longTerm[category]?.includes(courseCode) ||
-                                                   midTerm[category]?.includes(courseCode) ||
-                                                   shortTerm[category]?.includes(courseCode));
-    return {
-      name,
-      category,
-      duration,
-      courseCode,
-      months: duration === "Long" ? 24 : duration === "Mid" ? 12 : 6,
-      totalFees: 1500,
-      registrationFees: 100,
-      downPayment: 200,
-      lumpSum: 1300,
-      installments: 20,
-      month: 7,
-      totalSubmission: 1500,
-      monthlyInstallments_1: 60,
-      monthlyInstallments_2: 60,
-      monthlyInstallments_3: 60,
-      terms: terms[courseCode] || ["N/A"]
-    };
-  })
+  new Course(
+    "OV-3156-ACVP-VE",
+    "ACVP-Visual Effects",
+    "Long",
+    26,
+    ["VFX"],
+    356596,
+    289336,
+    [
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["Maya", "Z-Brush", "3D Equalizer", "Golem Crowd", "After Effects"],
+      ["Nuke", "Sillhouette", "Mocha"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3105-ANIVFGAM",
+    "Trinity 3d Game",
+    "Long",
+    32,
+    ["Game Design"],
+    547520,
+    448754,
+    [
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC"],
+      ["Maya/ Blender", "Z-Brush", "Game Engine (Unreal or Unity)", "Substance Painter"],
+      ["After Effects", "3D Equalizer", "Nuke", "Sillhouette", "Mocha", "Houdini"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3108 Bvoc FM",
+    "B. Voc (VFA)",
+    "Long",
+    36,
+    ["VFX"],
+    455000,
+    undefined,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Indesign"],
+      ["Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects"],
+      ["Web Theory", "Animate CC"],
+      ["3Ds Max"],
+      ["Maya"],
+      ["Nuke"]
+    ]
+  ),
+  new Course(
+    "OV-3161-GWDD",
+    "Graphics, Web Design and Development",
+    "Mid",
+    15,
+    ["Graphic Web Design and Development"],
+    161896,
+    141246,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      ["HTML5", "CSS3", "Javascript ES7", "Angular JS", "Bootstrap 5", "PHP", "Drupal 9"],
+      [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-606-GD",
+    "Graphic Designing",
+    "Short",
+    4,
+    ["Graphic Design"],
+    51448,
+    50740,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Indesign"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-654-URC",
+    "Unreal Cinematics",
+    "Short",
+    2,
+    ["Game Design"],
+    47908,
+    0,
+    [
+      ["Unreal Engine"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3108 Bvoc GDD",
+    "B. Voc (GDD)",
+    "Long",
+    36,
+    ["Game Design", "Game Development"], // Multiple categories
+    455000,
+    undefined,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC"],
+      ["Adobe Photoshop CC", "Unreal", "Blender"],
+      ["Blender", "Substance Painter & Unreal Engine"],
+      ["Adobe Photoshop CC"],
+      ["Unreal Engine"],
+      ["Unreal Engine"]
+    ]
+  ),
+  new Course(
+    "OV-3159-ACP-VFX COMP",
+    "Arena Certified Professional in Animation and VFX",
+    "Long",
+    28,
+    ["VFX"],
+    346212,
+    283318,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["Maya", "Z-Brush", "After Effects"],
+      ["Nuke", "Sillhouette", "Mocha"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3159-ACP-3DA",
+    "Arena Certified Professional in 3D Animation (Term 1 + 2)",
+    "Long",
+    20,
+    ["3D Animation"],
+    295000,
+    244850,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["Maya", "Z-Brush", "After Effects"],
+      [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3155-ACAP-3DA",
+    "ACAP-3D Animation (Term 1 + 2)",
+    "Long",
+    16,
+    ["3D Animation"],
+    299956,
+    257948,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["3Ds Max"],
+      [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3155-ACAP-A3DA",
+    "ACAP-Advanced 3D Animation",
+    "Long",
+    27,
+    ["3D Animation"],
+    348808,
+    282138,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["3Ds Max"],
+      ["Maya"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3156-ACVP-A3DA",
+    "ACVP-Advanced 3D Animation",
+    "Long",
+    20,
+    ["3D Animation"],
+    338424,
+    281076,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3142-ACP-AVFXG",
+    "Arena Certified Professional in Animation VFX and Gaming",
+    "Long",
+    33,
+    ["Game Design"],
+    391524,
+    332406,
+    [
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["Maya", "Z-Brush", "After Effects", "XGen", "Photogrametary (Agisoft", "Metashape/ 3DF Zephyr)"],
+      ["Unreal Engine"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3146-GARVRP",
+    "AR-VR PRIME",
+    "Long",
+    40,
+    ["Game Design", "Game Development"],
+    541620,
+    408162,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      ["Adobe Photoshop CC", "Unity", "Blender"],
+      ["Adobe Photoshop", "Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
+      ["Adobe Photoshop CC", "Unity", "Maya/ Blender"],
+      ["Adobe Photoshop CC", "Unreal", "Maya/ Blender/Unity"],
+      []
+    ]
+  ),
+  new Course(
+    "OV-3147-ADVPRGGD",
+    "Advanced Program in Game Design",
+    "Long",
+    30,
+    ["Game Design"],
+    418900,
+    333350,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      ["Blender", "Unity3d"],
+      [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3148-VDP",
+    "Video Games Professional",
+    "Long",
+    22,
+    ["Game Design", "Game Development"],
+    297832,
+    251930,
+    [
+      ["Adobe Photoshop"],
+      ["Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
+      [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3164-APAVID",
+    "Advanced Program in Architectural Visualization and Interior Design",
+    "Long",
+    31,
+    ["Interior/Exterior"],
+    380550,
+    326388,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3164-3DRT-VE",
+    "3d real Time3DRT – Visual effects",
+    "Long",
+    31,
+    ["VFX"],
+    381494,
+    277500,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
+      ["Maya", "Substance Painter", "Generative AI"],
+      ["Nuke", "Sillhouette", "Mocha"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3164-3DRT-R3D",
+    "3d real Time",
+    "Long",
+    31,
+    ["Game Design"],
+    381494,
+    277500,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
+      ["Maya", "Substance Painter", "Generative AI"],
+      ["Maya", "Z-Brush", "XGen", "Photogrametary (Agisoft", "Metashape/ 3DF Zephyr)"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-655-3dMGDPr",
+    "3D Motion Graphic Design Prime",
+    "Mid",
+    11,
+    ["Graphic Design"],
+    163312,
+    142308,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Indesign", "Adobe Premier Pro CC", "Photography", "Blender"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3095-UIUXAP",
+    "UI-UX Advanced Program",
+    "Mid",
+    13,
+    ["UI/UX"],
+    171100,
+    149506,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "Angular JS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
+      [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3160-VFXCE",
+    "Arena Certified Professional in VFX Compositing and Editing",
+    "Mid",
+    13,
+    ["VFX"],
+    149506,
+    133930,
+    [
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "After Effects", "Nuke", "Silloute", "Mocha", "i Clone"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3153-CFM",
+    "Creative Film Making",
+    "Mid",
+    10,
+    ["Video/Audio"],
+    94754,
+    91096,
+    [
+      [], [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-646-MGD",
+    "Motion Graphics Design",
+    "Mid",
+    10,
+    ["Motion Graphic Design"],
+    128620,
+    112454,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3106-WDD",
+    "Web design and development",
+    "Mid",
+    10,
+    ["Graphic Web Design and Development"],
+    87320,
+    78470,
+    [
+      ["HTML5", "CSS3", "Javascript ES7", "Angular JS", "Bootstrap 5", "PHP", "Drupal 9"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3167-ADGA",
+    "Advanced Digital Graphics and Animation",
+    "Mid",
+    14,
+    ["3D Animation"],
+    149860,
+    141600,
+    [
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
+      ["Maya", "Generative AI"],
+      [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3165-DCC",
+    "Digital Content Creation",
+    "Mid",
+    19,
+    ["Motion Graphic Design"],
+    207326,
+    191632,
+    [
+      ["Animate 2D", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3165-DCC-MD",
+    "Digital Content Creation - Motion Design",
+    "Mid",
+    13,
+    ["Motion Graphic Design"],
+    144432,
+    137116,
+    [
+      [], [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3165-DCC-UID",
+    "Digital Content Creation - UI Design",
+    "Mid",
+    13,
+    ["UI/UX"],
+    154698,
+    146084,
+    [
+      [], [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-638-DAID",
+    "Digital Architecture and Interior Design",
+    "Short",
+    9,
+    ["Interior/Exterior"],
+    85668,
+    75166,
+    [
+      ["Auto Cad", "3Ds Max (Vray)"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3135-GDP",
+    "Graphic Design Prime",
+    "Short",
+    7,
+    ["Graphic Design"],
+    78116,
+    69148,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3161-GDW",
+    "Graphics Design for Web",
+    "Short",
+    7,
+    ["Graphic Design"],
+    74340,
+    68086,
+    [
+      [], [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3161-WD",
+    "Web Design",
+    "Short",
+    7,
+    ["Graphic Web Design and Development"],
+    86612,
+    77172,
+    [
+      [], [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3095-UIPP",
+    "UI-Professional Program",
+    "Short",
+    5,
+    ["UI/UX"],
+    58056,
+    52274,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "Angular JS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3095-UXPP",
+    "UX-Professional Program",
+    "Short",
+    9,
+    ["UI/UX"],
+    116820,
+    103368,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3095-APUIUX",
+    "Advanced Program in UI UX",
+    "Short",
+    7,
+    ["UI/UX"],
+    85196,
+    83308,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "WordPress", "FigJam", "XAMPP"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3156-ACVP-DV",
+    "ACAP-Design and Visualisation",
+    "Short",
+    9,
+    ["Video/Audio"],
+    112336,
+    101126,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-596-Adv 3DA",
+    "Advance 3D Animation",
+    "Short",
+    6,
+    ["3D Animation"],
+    77408,
+    68676,
+    [
+      ["Maya"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-634-B3DA",
+    "Basics of 3D Animation",
+    "Short",
+    6,
+    ["3D Animation"],
+    84016,
+    75284,
+    [
+      ["3Ds Max"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-659-PBRTW",
+    "PBR Texturing Workflow with Substance Painter",
+    "Short",
+    2,
+    ["3D Animation"],
+    22066,
+    0,
+    [
+      ["Substance Painter"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-658-GAI",
+    "Graphic Art and Illustrations (Illustrator)",
+    "Short",
+    2,
+    ["Graphic Design"],
+    22066,
+    0,
+    [
+      ["Adobe illustrator"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-588-Ph",
+    "Photoshop",
+    "Short",
+    2,
+    ["Graphic Design"],
+    27376,
+    0,
+    [
+      ["Photshop"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-592-VE",
+    "Video Editing",
+    "Short",
+    2,
+    ["Video/Audio"],
+    29618,
+    0,
+    [
+      ["Premier Pro"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-593-AVE",
+    "Audio-Video Editing",
+    "Short",
+    2,
+    ["Video/Audio"],
+    26550,
+    0,
+    [
+      ["Premier and Audtion"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-599-VFX-AE",
+    "Visual Effect - After Effects",
+    "Short",
+    2,
+    ["VFX"],
+    22066,
+    0,
+    [
+      ["After Effects"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-626-MP",
+    "Media Publishing",
+    "Short",
+    1,
+    ["Graphic Design"],
+    12626,
+    0,
+    [
+      ["Indesign"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-600-Vfx-Nuke",
+    "Visual Effect - Nuke",
+    "Short",
+    3,
+    ["VFX"],
+    27848,
+    0,
+    [
+      ["Nuke"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3128-UGD",
+    "Unreal Game Development",
+    "Short",
+    9,
+    ["Game Design"],
+    152692,
+    0,
+    [
+      ["Unreal Engine"],
+      [], [], [], [], []
+    ]
+  ),
+  new Course(
+    "OV-3164-APAVID",
+    "Advanced Program in Architectural Visualization and Interior Design (Without Blender)",
+    "Long",
+    undefined,
+    ["Interior/Exterior"],
+    undefined,
+    undefined,
+    [
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
+      [], [], [], [], []
+    ]
+  )
 ];
