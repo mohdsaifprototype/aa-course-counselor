@@ -308,7 +308,7 @@ export const courses = [
     326388,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
-      [], [], [], [], []
+      ["Not updates yet"], ["No updates yet"], [], [], []
     ]
   ),
   new Course(
@@ -378,7 +378,7 @@ export const courses = [
     149506,
     133930,
     [
-      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "After Effects", "Nuke", "Silloute", "Mocha", "i Clone"],
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "After Effects", "Nuke", "Silhouette", "Mocha", "i Clone"],
       [], [], [], [], []
     ]
   ),
@@ -391,7 +391,7 @@ export const courses = [
     94754,
     91096,
     [
-      [], [], [], [], [], []
+      ["No updates yet"], [], [], [], [], []
     ]
   ),
   new Course(
