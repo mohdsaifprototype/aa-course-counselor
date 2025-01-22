@@ -204,6 +204,7 @@ table {
   border-collapse: collapse;
   max-width: 100%;
   margin-bottom: 25px;
+  outline: 2px solid;
 }
 
 th,
@@ -211,6 +212,7 @@ td {
   padding: 8px;
   font-size: 0.8rem;
   text-align: center;
+  outline: 1px solid;
 }
 
 th {
