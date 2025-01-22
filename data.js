@@ -15,7 +15,7 @@ class Course {
     this.categories = categories; // Changed to accept multiple categories
     this.totalFees = totalFees;
     this.registrationFees = 5900; // Fixed registration fee
-    this.downPayment = degree ? 80000 : 300000;     // Fixed down payment
+    this.downPayment = degree ? 80000 : 30000;     // Fixed down payment
     this.lumpSum = lumpSum;
     this.terms = terms;
     this.degree = degree;
