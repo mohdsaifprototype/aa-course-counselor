@@ -29,7 +29,7 @@ class Course {
     if (this.degree) {
       return (this.months / 6) - 1;
     } else {
-      return Math.floor(this.months / 3);
+      return Math.floor(this.months / 4);
     }
   }
 
@@ -38,7 +38,7 @@ class Course {
     if (this.degree) {
       return this.totalSubmission / 5;
     } else {
-      return this.totalSubmission / Math.floor(this.months / 3);
+      return this.totalSubmission / Math.floor(this.months / 4);
     }
   }
 

@@ -266,6 +266,10 @@ footer a:hover {
     gap: 20px;
   }
 
+  .main{
+    padding: 2px;
+  }
+
   .search-box {
     width: 100%;
   }
