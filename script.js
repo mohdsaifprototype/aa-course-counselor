@@ -164,8 +164,8 @@ function showCourseDetail(courseName) {
           selectedCourse.totalFees / Math.ceil(selectedCourse.months / 12)
         )
       : null;
-  const yearlyPayments = yearlyAmount
-    ? `${formatAmount(yearlyAmount)} &times; ${Math.ceil(
+  const yearlyPayments = yearlyAmount ? selectedCourse.degree
+    ? "N/A" : `${formatAmount(yearlyAmount)} &times; ${Math.ceil(
         selectedCourse.months / 12
       )}`
     : "N/A";
@@ -192,7 +192,7 @@ function showCourseDetail(courseName) {
   `;
 
   // Update monthly EMI plans with multiplication signs
-  document.getElementById("course-detail-table4").innerHTML = `
+  document.getElementById("course-detail-table4").innerHTML = (selectedCourse.degree) ? "<td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td>" : `
     <td>${formatAmount(selectedCourse.monthlyInstallments_1)} &times; ${
     selectedCourse.months - 1
   }</td>

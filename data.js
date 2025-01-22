@@ -15,7 +15,7 @@ class Course {
     this.categories = categories; // Changed to accept multiple categories
     this.totalFees = totalFees;
     this.registrationFees = 5900; // Fixed registration fee
-    this.downPayment = 30000;     // Fixed down payment
+    this.downPayment = degree ? 80000 : 300000;     // Fixed down payment
     this.lumpSum = lumpSum;
     this.terms = terms;
     this.degree = degree;
@@ -27,11 +27,12 @@ class Course {
 
   get totalNoOfQuarterlyInstallments() {
     if (this.degree) {
-      return this.months / 5;
+      return (this.months / 6) - 1;
     } else {
       return Math.floor(this.months / 3);
     }
   }
+
 
   get installments() {
     if (this.degree) {
@@ -80,7 +81,7 @@ export const courses = [
     "Trinity 3d Game",
     "Long",
     32,
-    ["Game Design"],
+    ["Game Design", "3D Animation", "VFX"],
     547520,
     448754,
     [
@@ -95,7 +96,7 @@ export const courses = [
     "B. Voc (VFA)",
     "Long",
     36,
-    ["VFX"],
+    ["VFX", "3D Animation"],
     455000,
     undefined,
     [
@@ -105,14 +106,15 @@ export const courses = [
       ["3Ds Max"],
       ["Maya"],
       ["Nuke"]
-    ]
+    ],
+    true
   ),
   new Course(
     "OV-3161-GWDD",
     "Graphics, Web Design and Development",
     "Mid",
     15,
-    ["Graphic Web Design and Development"],
+    ["Graphic Web Design and Development", "Graphic Design"],
     161896,
     141246,
     [
@@ -162,7 +164,8 @@ export const courses = [
       ["Adobe Photoshop CC"],
       ["Unreal Engine"],
       ["Unreal Engine"]
-    ]
+    ],
+    true
   ),
   new Course(
     "OV-3159-ACP-VFX COMP",
@@ -240,7 +243,7 @@ export const courses = [
     "Arena Certified Professional in Animation VFX and Gaming",
     "Long",
     33,
-    ["Game Design"],
+    ["Game Design", "3D Animation", "VFX"],
     391524,
     332406,
     [
@@ -343,7 +346,7 @@ export const courses = [
     "3D Motion Graphic Design Prime",
     "Mid",
     11,
-    ["Graphic Design"],
+    ["Graphic Design", "2D Animation", "Motion Graphic Design"],
     163312,
     142308,
     [
@@ -371,7 +374,7 @@ export const courses = [
     "Arena Certified Professional in VFX Compositing and Editing",
     "Mid",
     13,
-    ["VFX"],
+    ["VFX", "Video/Audio"],
     149506,
     133930,
     [
@@ -396,7 +399,7 @@ export const courses = [
     "Motion Graphics Design",
     "Mid",
     10,
-    ["Motion Graphic Design"],
+    ["Motion Graphic Design", "Graphic Design", "2D Animation"],
     128620,
     112454,
     [
@@ -422,7 +425,7 @@ export const courses = [
     "Advanced Digital Graphics and Animation",
     "Mid",
     14,
-    ["3D Animation"],
+    ["3D Animation", "Graphic Design"],
     149860,
     141600,
     [
@@ -436,7 +439,7 @@ export const courses = [
     "Digital Content Creation",
     "Mid",
     19,
-    ["Motion Graphic Design"],
+    ["Motion Graphic Design", "Graphic Design"],
     207326,
     191632,
     [
@@ -449,7 +452,7 @@ export const courses = [
     "Digital Content Creation - Motion Design",
     "Mid",
     13,
-    ["Motion Graphic Design"],
+    ["Motion Graphic Design", "Graphic Design", "2D Animation"],
     144432,
     137116,
     [
@@ -461,7 +464,7 @@ export const courses = [
     "Digital Content Creation - UI Design",
     "Mid",
     13,
-    ["UI/UX"],
+    ["UI/UX", "Graphic Design"],
     154698,
     146084,
     [
@@ -511,7 +514,7 @@ export const courses = [
     "Web Design",
     "Short",
     7,
-    ["Graphic Web Design and Development"],
+    ["Graphic Web Design and Development", "Graphic Design"],
     86612,
     77172,
     [
@@ -562,7 +565,7 @@ export const courses = [
     "ACAP-Design and Visualisation",
     "Short",
     9,
-    ["Video/Audio"],
+    ["Video/Audio", "Graphic Design"],
     112336,
     101126,
     [
@@ -666,7 +669,7 @@ export const courses = [
     "Visual Effect - After Effects",
     "Short",
     2,
-    ["VFX"],
+    ["VFX", "Motion Graphic Design"],
     22066,
     0,
     [
@@ -705,7 +708,7 @@ export const courses = [
     "Unreal Game Development",
     "Short",
     9,
-    ["Game Design"],
+    ["Game Design", "Game Development"],
     152692,
     0,
     [
