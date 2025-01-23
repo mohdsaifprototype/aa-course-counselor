@@ -29,7 +29,7 @@ class Course {
     if (this.degree) {
       return (this.months / 6) - 1;
     } else {
-      return Math.floor(this.months / 4);
+      return Math.floor(this.months / 3);
     }
   }
 
@@ -104,7 +104,7 @@ export const courses = [
       ["Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects"],
       ["Web Theory", "Animate CC"],
       ["3Ds Max"],
-      ["Maya"],
+      ["Maya", "Numke Intro"],
       ["Nuke"]
     ],
     true
