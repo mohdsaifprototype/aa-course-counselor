@@ -165,10 +165,12 @@ function showCourseDetail(courseName) {
           selectedCourse.totalFees / Math.ceil(selectedCourse.months / 12)
         )
       : null;
-  const yearlyPayments = yearlyAmount ? selectedCourse.degree
-    ? "N/A" : `${formatAmount(yearlyAmount)} &times; ${Math.ceil(
-        selectedCourse.months / 12
-      )}`
+  const yearlyPayments = yearlyAmount
+    ? selectedCourse.degree
+      ? "N/A"
+      : `${formatAmount(yearlyAmount)} &times; ${Math.ceil(
+          selectedCourse.months / 12
+        )}`
     : "N/A";
 
   // Update installment methods table (matching HTML structure)
@@ -192,20 +194,56 @@ function showCourseDetail(courseName) {
   `;
 
   // Update monthly EMI plans with multiplication signs
-  document.getElementById("course-detail-table4").innerHTML = (selectedCourse.degree) ? "<td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td>" : ` 
-    <td>${formatAmount(selectedCourse.monthlyInstallments_1)} &times; ${
-    selectedCourse.months - 1
-  }</td>
-    <td>${formatAmount(selectedCourse.monthlyInstallments_2)} &times; ${
-    selectedCourse.months - 2
-  }</td>
-    <td>${formatAmount(selectedCourse.monthlyInstallments_3)} &times; ${
-    selectedCourse.months - 3
-  }</td>
-    <td>${formatAmount(selectedCourse.monthlyInstallments_4)} &times; ${
-    selectedCourse.months - 4
-  }</td>
-  `;
+
+  if (selectedCourse.degree) {
+    document.getElementById("course-detail-table4").innerHTML =
+      "<td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td>";
+  } else {
+    if (selectedCourse.monthlyInstallments_1 <= 0 || selectedCourse.months < 4 || (selectedCourse.months - 1) <= 0) {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML = `<td>N/A</td>`;
+    } else {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML = `<td>${formatAmount(
+        selectedCourse.monthlyInstallments_1
+      )} &times; ${selectedCourse.months - 1}</td>`;
+    }
+    if (selectedCourse.monthlyInstallments_2 <= 0 || selectedCourse.months < 4 || (selectedCourse.months - 2) <= 0) {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML += `<td>N/A</td>`;
+    } else {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML += `<td>${formatAmount(
+        selectedCourse.monthlyInstallments_2
+      )} &times; ${selectedCourse.months - 2}</td>`;
+    }
+    if (selectedCourse.monthlyInstallments_3 <= 0 || selectedCourse.months < 4 || (selectedCourse.months - 3) <= 0) {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML += `<td>N/A</td>`;
+    } else {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML += `<td>${formatAmount(
+        selectedCourse.monthlyInstallments_3
+      )} &times; ${selectedCourse.months - 3}</td>`;
+    }
+    if (selectedCourse.monthlyInstallments_4 <= 0 || selectedCourse.months < 4 || (selectedCourse.months - 4) <= 0) {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML += `<td>N/A</td>`;
+    } else {
+      document.getElementById(
+        "course-detail-table4"
+      ).innerHTML += `<td>${formatAmount(
+        selectedCourse.monthlyInstallments_3
+      )} &times; ${selectedCourse.months - 4}</td>`;
+    }
+  }
 
   document.getElementById("course-detail-section").style.display = "block";
 }
