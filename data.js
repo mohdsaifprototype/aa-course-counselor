@@ -29,7 +29,7 @@ class Course {
     if (this.degree) {
       return (this.months / 6) - 1;
     } else {
-      return Math.floor(this.months / 3);
+      return Math.floor((this.months - 1) / 3);
     }
   }
 
@@ -206,7 +206,7 @@ export const courses = [
     257948,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["3Ds Max"],
+      ["3Ds Max", "After Effects"],
       [], [], [], []
     ]
   ),
@@ -220,8 +220,8 @@ export const courses = [
     282138,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["3Ds Max"],
-      ["Maya"],
+      ["3Ds Max", "After Effects"],
+      ["Maya, 3D Equalizer", "Z", "Brush"],
       [], [], []
     ]
   ),
@@ -248,7 +248,7 @@ export const courses = [
     332406,
     [
       ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["Maya", "Z-Brush", "After Effects", "XGen", "Photogrametary (Agisoft", "Metashape/ 3DF Zephyr)"],
+      ["Maya", "Z-Brush", "After Effects", "XGen", "Photogrametary (Agisoft, Metashape/ 3DF Zephyr)"],
       ["Unreal Engine"],
       [], [], []
     ]
