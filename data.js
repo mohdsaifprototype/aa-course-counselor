@@ -119,7 +119,7 @@ export const courses = [
     141246,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
-      ["HTML5", "CSS3", "Javascript ES7", "Angular JS", "Bootstrap 5", "PHP", "Drupal 9"],
+      ["HTML5", "CSS3", "Javascript ES7", "AngularJS", "Bootstrap 5", "PHP", "Drupal 9"],
       [], [], [], []
     ]
   ),
@@ -145,7 +145,7 @@ export const courses = [
     47908,
     0,
     [
-      ["Unreal Engine"],
+      ["Unreal Engine (Designing)"],
       [], [], [], [], []
     ]
   ),
@@ -363,7 +363,7 @@ export const courses = [
     171100,
     149506,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "Angular JS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "AngularJS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
       [], [], []
@@ -416,7 +416,7 @@ export const courses = [
     87320,
     78470,
     [
-      ["HTML5", "CSS3", "Javascript ES7", "Angular JS", "Bootstrap 5", "PHP", "Drupal 9"],
+      ["HTML5", "CSS3", "Javascript ES7", "AngularJS", "Bootstrap 5", "PHP", "Drupal 9"],
       [], [], [], [], []
     ]
   ),
@@ -443,8 +443,9 @@ export const courses = [
     207326,
     191632,
     [
-      ["Animate 2D", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
-      [], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC,Indesign"],
+      ["2d Animate", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
+       ["Bootstrap", "Figma", "AngularJS", "HTML", "CSS", "JavaScript", "PHP", "Material Design", "JQuery", "VisualCode"], [], [], []
     ]
   ),
   new Course(
@@ -456,7 +457,9 @@ export const courses = [
     144432,
     137116,
     [
-      [], [], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Indesign"],
+      ["2d Animate", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
+      [], [], [], []
     ]
   ),
   new Course(
@@ -468,7 +471,8 @@ export const courses = [
     154698,
     146084,
     [
-      [], [], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Indesign"], [], [], ["Bootstrap", "Figma", "AngularJS", "HTML", "CSS", "JavaScript", "PHP", "Material Design", "JQuery", "VisualCode"],
+      [], []
     ]
   ),
   new Course(
@@ -530,7 +534,7 @@ export const courses = [
     58056,
     52274,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "Angular JS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "AngularJS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
       [], [], [], [], []
     ]
   ),
@@ -712,7 +716,7 @@ export const courses = [
     152692,
     0,
     [
-      ["Unreal Engine"],
+      ["Unreal Engine (Designing and Development)"],
       [], [], [], [], []
     ]
   ),
@@ -726,7 +730,7 @@ export const courses = [
     undefined,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
-      [], [], [], [], []
+      ["No updates yet"], [], [], [], []
     ]
   )
 ];
