@@ -192,7 +192,7 @@ function showCourseDetail(courseName) {
   `;
 
   // Update monthly EMI plans with multiplication signs
-  document.getElementById("course-detail-table4").innerHTML = (selectedCourse.degree) ? "<td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td>" : `
+  document.getElementById("course-detail-table4").innerHTML = (selectedCourse.degree) ? "<td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td>" : ` 
     <td>${formatAmount(selectedCourse.monthlyInstallments_1)} &times; ${
     selectedCourse.months - 1
   }</td>
