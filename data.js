@@ -38,7 +38,7 @@ class Course {
     if (this.degree) {
       return this.totalSubmission / 5;
     } else {
-      return this.totalSubmission / Math.floor(this.months / 4);
+      return this.totalSubmission / Math.floor((this.months -1) / 3);
     }
   }
 
@@ -70,9 +70,9 @@ export const courses = [
     356596,
     289336,
     [
-      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["Maya", "Z-Brush", "3D Equalizer", "Golem Crowd", "After Effects"],
-      ["Nuke", "Sillhouette", "Mocha"],
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe Animate CC"],
+      ["Autodesk Maya", "ZBrush", "3D Equalizer", "Golem Crowd", "Adobe After Effects"],
+      ["Foundry Nuke", "Sillhouette", "Mocha"],
       [], [], []
     ]
   ),
@@ -86,8 +86,8 @@ export const courses = [
     448754,
     [
       ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC"],
-      ["Maya/ Blender", "Z-Brush", "Game Engine (Unreal or Unity)", "Substance Painter"],
-      ["After Effects", "3D Equalizer", "Nuke", "Sillhouette", "Mocha", "Houdini"],
+      ["Autodesk Maya/ Blender", "ZBrush", "Game Engine (Unreal or Unity)", "Substance Painter"],
+      ["Adobe After Effects", "3D Equalizer", "Nuke", "Sillhouette", "Mocha", "Houdini"],
       [], [], []
     ]
   ),
@@ -100,12 +100,12 @@ export const courses = [
     455000,
     undefined,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Indesign"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Adobe Indesign"],
       ["Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects"],
       ["Web Theory", "Animate CC"],
-      ["3Ds Max"],
-      ["Maya", "Numke Intro"],
-      ["Nuke"]
+      ["Autodesk 3Ds Max"],
+      ["Maya", "Foundry Nuke (Intro)"],
+      ["Foundry Nuke"]
     ],
     true
   ),
@@ -118,8 +118,8 @@ export const courses = [
     161896,
     141246,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
-      ["HTML5", "CSS3", "Javascript ES7", "AngularJS", "Bootstrap 5", "PHP", "Drupal 9"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC", "Adpbe XD"],
+      ["HTML5", "CSS3", "Javascript ES7", "AngularJS 1.8", "Bootstrap 5", "PHP", "Drupal 9"],
       [], [], [], []
     ]
   ),
@@ -132,7 +132,7 @@ export const courses = [
     51448,
     50740,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Indesign"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Adobe Indesign"],
       [], [], [], [], []
     ]
   ),
@@ -176,9 +176,9 @@ export const courses = [
     346212,
     283318,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["Maya", "Z-Brush", "After Effects"],
-      ["Nuke", "Sillhouette", "Mocha"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe Animate CC"],
+      ["Autodesk Maya", "ZBrush", "Adobe After Effects"],
+      ["Foundry Nuke", "Sillhouette", "Mocha"],
       [], [], []
     ]
   ),
@@ -191,8 +191,8 @@ export const courses = [
     295000,
     244850,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["Maya", "Z-Brush", "After Effects"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe Animate CC"],
+      ["Autodesk Maya, ZBrush", "Adobe After Effects"],
       [], [], [], []
     ]
   ),
@@ -205,8 +205,8 @@ export const courses = [
     299956,
     257948,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["3Ds Max", "After Effects"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe Animate CC"],
+      ["Autodesk 3Ds Max", "Adobe After Effects"],
       [], [], [], []
     ]
   ),
@@ -219,9 +219,9 @@ export const courses = [
     348808,
     282138,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["3Ds Max", "After Effects"],
-      ["Maya, 3D Equalizer", "Z", "Brush"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe Animate CC"],
+      ["Autodesk 3Ds Max", "Adobe After Effects"],
+      ["Autodesk Maya, 3D Equalizer, ZBrush"],
       [], [], []
     ]
   ),
@@ -247,9 +247,9 @@ export const courses = [
     391524,
     332406,
     [
-      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      ["Maya", "Z-Brush", "After Effects", "XGen", "Photogrametary (Agisoft, Metashape/ 3DF Zephyr)"],
-      ["Unreal Engine"],
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe Animate CC"],
+      ["Autodesk Maya", "ZBrush", "Adobe After Effects", "XGen", "Photogrametary (Agisoft, Metashape/ 3DF Zephyr)"],
+      ["Unreal Engine (Designing and Development)"],
       [], [], []
     ]
   ),
@@ -262,11 +262,11 @@ export const courses = [
     541620,
     408162,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC"],
       ["Adobe Photoshop CC", "Unity", "Blender"],
-      ["Adobe Photoshop", "Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
-      ["Adobe Photoshop CC", "Unity", "Maya/ Blender"],
-      ["Adobe Photoshop CC", "Unreal", "Maya/ Blender/Unity"],
+      ["Adobe Photoshop", "Autodesk Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
+      ["Adobe Photoshop CC", "Unity", "Autdesk Maya / Blender"],
+      ["Adobe Photoshop CC", "Unreal", "Autodesk Maya / Blender/Unity"],
       []
     ]
   ),
@@ -279,7 +279,7 @@ export const courses = [
     418900,
     333350,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC"],
       ["Blender", "Unity3d"],
       [], [], [], []
     ]
@@ -294,7 +294,7 @@ export const courses = [
     251930,
     [
       ["Adobe Photoshop"],
-      ["Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
+      ["Autodesk Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
       [], [], [], []
     ]
   ),
@@ -302,18 +302,20 @@ export const courses = [
     "OV-3164-APAVID",
     "Advanced Program in Architectural Visualization and Interior Design",
     "Long",
-    31,
+    27,
     ["Interior/Exterior"],
     380550,
     326388,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
-      ["Not updates yet"], ["No updates yet"], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe After Effects CC"],
+      ["Autodesk 3Ds Max (Vray)", "Adobe Subdstance Painter"],
+      ["Blender"], 
+      ["ZBrush", "Unreal Engine (Designing)"], [], []
     ]
   ),
   new Course(
     "OV-3164-3DRT-VE",
-    "3d real Time3DRT – Visual effects",
+    "3d real Time3DRT - Visual effects",
     "Long",
     31,
     ["VFX"],
@@ -321,8 +323,8 @@ export const courses = [
     277500,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
-      ["Maya", "Substance Painter", "Generative AI"],
-      ["Nuke", "Sillhouette", "Mocha"],
+      ["Autodesk Maya", "Substance Painter", "Generative AI"],
+      ["Foundry Nuke", "Sillhouette", "Mocha"],
       [], [], []
     ]
   ),
@@ -335,9 +337,9 @@ export const courses = [
     381494,
     277500,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
-      ["Maya", "Substance Painter", "Generative AI"],
-      ["Maya", "Z-Brush", "XGen", "Photogrametary (Agisoft", "Metashape/ 3DF Zephyr)"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
+      ["Autodesk Maya", "Substance Painter", "Generative AI"],
+      ["Autodesk Maya", "ZBrush", "XGen", "Photogrametary (Agisoft, Metashape / 3DF Zephyr)"],
       [], [], []
     ]
   ),
@@ -363,7 +365,7 @@ export const courses = [
     171100,
     149506,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "AngularJS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "AngularJS 1.8", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma"],
       [], [], []
@@ -378,7 +380,7 @@ export const courses = [
     149506,
     133930,
     [
-      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "After Effects", "Nuke", "Silhouette", "Mocha", "i Clone"],
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects", "Foundry Nuke", "Sillhouette", "Mocha", "iClone"],
       [], [], [], [], []
     ]
   ),
@@ -391,7 +393,7 @@ export const courses = [
     94754,
     91096,
     [
-      ["No updates yet"], [], [], [], [], []
+      ["Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Autodesk 3Ds Max (Vray)"], [], [], [], [], []
     ]
   ),
   new Course(
@@ -416,7 +418,7 @@ export const courses = [
     87320,
     78470,
     [
-      ["HTML5", "CSS3", "Javascript ES7", "AngularJS", "Bootstrap 5", "PHP", "Drupal 9"],
+      ["HTML5", "CSS3", "Javascript ES7", "AngularJS 1.8", "Bootstrap 5", "PHP", "Drupal 9"],
       [], [], [], [], []
     ]
   ),
@@ -430,7 +432,7 @@ export const courses = [
     141600,
     [
       ["Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
-      ["Maya", "Generative AI"],
+      ["Autodesk Maya", "Generative AI"],
       [], [], [], []
     ]
   ),
@@ -443,9 +445,9 @@ export const courses = [
     207326,
     191632,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC,Indesign"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Indesign"],
       ["2d Animate", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
-       ["Bootstrap", "Figma", "AngularJS", "HTML", "CSS", "JavaScript", "PHP", "Material Design", "JQuery", "VisualCode"], [], [], []
+       ["Bootstrap", "Figma", "AngularJS 1.8", "HTML", "CSS", "JavaScript", "PHP", "Material Design", "JQuery", "VisualCode"], [], [], []
     ]
   ),
   new Course(
@@ -457,7 +459,7 @@ export const courses = [
     144432,
     137116,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Indesign"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Indesign"],
       ["2d Animate", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
       [], [], [], []
     ]
@@ -471,8 +473,8 @@ export const courses = [
     154698,
     146084,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Indesign"], [], [], ["Bootstrap", "Figma", "AngularJS", "HTML", "CSS", "JavaScript", "PHP", "Material Design", "JQuery", "VisualCode"],
-      [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Indesign"],  ["Bootstrap", "Figma", "AngularJS 1.8", "HTML", "CSS", "JavaScript", "PHP", "Material Design", "JQuery", "VisualCode"],
+      [], [], [], []
     ]
   ),
   new Course(
@@ -484,7 +486,7 @@ export const courses = [
     85668,
     75166,
     [
-      ["Auto Cad", "3Ds Max (Vray)"],
+      ["Autodesk Auto Cad", "Autodesk 3Ds Max (Vray)"],
       [], [], [], [], []
     ]
   ),
@@ -497,7 +499,7 @@ export const courses = [
     78116,
     69148,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Animate CC"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC"],
       [], [], [], [], []
     ]
   ),
@@ -510,7 +512,7 @@ export const courses = [
     74340,
     68086,
     [
-      [], [], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC", "Adobe XD"], [], [], [], [], []
     ]
   ),
   new Course(
@@ -522,7 +524,7 @@ export const courses = [
     86612,
     77172,
     [
-      [], [], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC", "HTML5", "CSS3", "JavaScript"], [], [], [], [], []
     ]
   ),
   new Course(
@@ -534,7 +536,7 @@ export const courses = [
     58056,
     52274,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "AngularJS", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Figma", "HTML5", "CSS3", "Javascript", "AngularJS 1.8", "Bootstrap 5", "JQuery", "Visual Code", "Material Design"],
       [], [], [], [], []
     ]
   ),
@@ -573,7 +575,7 @@ export const courses = [
     112336,
     101126,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe Animate CC"],
       [], [], [], [], []
     ]
   ),
@@ -586,7 +588,7 @@ export const courses = [
     77408,
     68676,
     [
-      ["Maya"],
+      ["Autodesk Maya"],
       [], [], [], [], []
     ]
   ),
@@ -599,7 +601,7 @@ export const courses = [
     84016,
     75284,
     [
-      ["3Ds Max"],
+      ["Autodesk 3Ds Max"],
       [], [], [], [], []
     ]
   ),
@@ -625,7 +627,7 @@ export const courses = [
     22066,
     0,
     [
-      ["Adobe illustrator"],
+      ["Adobe Illustrator"],
       [], [], [], [], []
     ]
   ),
@@ -638,7 +640,7 @@ export const courses = [
     27376,
     0,
     [
-      ["Photshop"],
+      ["Adobe Photshop "],
       [], [], [], [], []
     ]
   ),
@@ -651,7 +653,7 @@ export const courses = [
     29618,
     0,
     [
-      ["Premier Pro"],
+      ["Adobe Premier Pro"],
       [], [], [], [], []
     ]
   ),
@@ -664,7 +666,7 @@ export const courses = [
     26550,
     0,
     [
-      ["Premier and Audtion"],
+      ["Adobe Audition CC, Aadobe Premier Pro CC"],
       [], [], [], [], []
     ]
   ),
@@ -677,7 +679,7 @@ export const courses = [
     22066,
     0,
     [
-      ["After Effects"],
+      ["Adobe After Effects"],
       [], [], [], [], []
     ]
   ),
@@ -690,7 +692,7 @@ export const courses = [
     12626,
     0,
     [
-      ["Indesign"],
+      ["Adobe Indesign"],
       [], [], [], [], []
     ]
   ),
@@ -703,7 +705,7 @@ export const courses = [
     27848,
     0,
     [
-      ["Nuke"],
+      ["Foundry Nuke"],
       [], [], [], [], []
     ]
   ),
@@ -724,13 +726,15 @@ export const courses = [
     "OV-3164-APAVID",
     "Advanced Program in Architectural Visualization and Interior Design (Without Blender)",
     "Long",
-    undefined,
+    22,
     ["Interior/Exterior"],
-    undefined,
-    undefined,
+    348100,
+    299366,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects ,CC"],
-      ["No updates yet"], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Aadobe Premier Pro CC", "Adobe After Effects CC"],
+      ["Autodesk 3Ds Max (Vray)", "Adobe Subdstance Painter"], 
+      ["ZBrush", "Unreal Engine (Designing)"], 
+      [], [], []
     ]
   )
 ];
