@@ -389,7 +389,7 @@ export const courses = [
     "Creative Film Making",
     "Mid",
     10,
-    ["Video/Audio"],
+    ["Video/Audio", "3D Animation"],
     94754,
     91096,
     [
