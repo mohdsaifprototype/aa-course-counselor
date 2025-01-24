@@ -184,7 +184,7 @@ export const courses = [
   ),
   new Course(
     "OV-3159-ACP-3DA",
-    "Arena Certified Professional in 3D Animation (Term 1 + 2)",
+    "Arena Certified Professional in 3D Animation (Term 1 + 2)  (Term 2 - Maya)",
     "Long",
     20,
     ["3D Animation"],
@@ -198,7 +198,7 @@ export const courses = [
   ),
   new Course(
     "OV-3155-ACAP-3DA",
-    "ACAP-3D Animation (Term 1 + 2)",
+    "ACAP-3D Animation (Term 1 + 2) (Term 2 - 3ds Max)",
     "Long",
     16,
     ["3D Animation"],
@@ -223,19 +223,6 @@ export const courses = [
       ["Autodesk 3Ds Max", "Adobe After Effects"],
       ["Autodesk Maya, 3D Equalizer, ZBrush"],
       [], [], []
-    ]
-  ),
-  new Course(
-    "OV-3156-ACVP-A3DA",
-    "ACVP-Advanced 3D Animation",
-    "Long",
-    20,
-    ["3D Animation"],
-    338424,
-    281076,
-    [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Animate CC"],
-      [], [], [], [], []
     ]
   ),
   new Course(
@@ -293,8 +280,8 @@ export const courses = [
     297832,
     251930,
     [
-      ["Adobe Photoshop"],
-      ["Autodesk Maya", "Zbursh", "Substance Painter", "Quixel & Unreal Engine"],
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC"],
+      ["Autodesk Maya", "Zbursh", "Substance Painter", "Fab & Unreal Engine"],
       [], [], [], []
     ]
   ),
@@ -339,7 +326,7 @@ export const courses = [
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects CC"],
       ["Autodesk Maya", "Substance Painter", "Generative AI"],
-      ["Autodesk Maya", "ZBrush", "XGen", "Photogrametary (Agisoft, Metashape / 3DF Zephyr)"],
+      ["Autodesk Maya", "ZBrush", "XGen", "Photogrametary (Agisoft, Metashape / 3DF Zephyr)", "Unreal Engine (Designing)"],
       [], [], []
     ]
   ),
