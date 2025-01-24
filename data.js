@@ -119,7 +119,7 @@ export const courses = [
     141246,
     [
       ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC", "Adpbe XD"],
-      ["HTML5", "CSS3", "Javascript ES7", "AngularJS 1.8", "Bootstrap 5", "PHP", "Drupal 9"],
+      ["HTML5", "CSS3", "Javascript ES7", "AngularJS 1.8", "Bootstrap 5", "PHP", "Drupal 9", "Digital Marketing"],
       [], [], [], []
     ]
   ),
@@ -511,7 +511,7 @@ export const courses = [
     86612,
     77172,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC", "HTML5", "CSS3", "JavaScript"], [], [], [], [], []
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC", "HTML5", "CSS3", "JavaScript",], [], [], [], [], []
     ]
   ),
   new Course(
