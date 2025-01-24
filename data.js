@@ -100,12 +100,12 @@ export const courses = [
     455000,
     undefined,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Coral Draw", "Adobe Indesign"],
-      ["Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects"],
-      ["Web Theory", "Animate CC"],
-      ["Autodesk 3Ds Max"],
-      ["Maya", "Foundry Nuke (Intro)"],
-      ["Foundry Nuke"]
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Express", "Canva"],
+      ["Adobe Audition CC", "Adobe Premier Pro CC", "Adobe After Effects", "Adobe Animate CC"],
+      ["Blender", "Autodesk 3ds Max with Vray"],
+      ["Autodesk Maya", "Zbursh", "Substance Painter"],
+      ["Autodesk Maya", "Silhoutte", "3D Equalizer", "Unreal (Designing)", "Houdini"],
+      ["Foundry Nuke", "Davnci Resolve", "Portfolio"]
     ],
     true
   ),
@@ -158,12 +158,12 @@ export const courses = [
     455000,
     undefined,
     [
-      ["Adobe Illustrator CC", "Adobe Photoshop CC"],
-      ["Adobe Photoshop CC", "Unreal", "Blender"],
-      ["Blender", "Substance Painter & Unreal Engine"],
-      ["Adobe Photoshop CC"],
-      ["Unreal Engine"],
-      ["Unreal Engine"]
+      ["Adobe Illustrator CC", "Adobe Photoshop CC", "Adobe Animate CC"],
+      ["Adobe Photoshop", "Figma", "Class room PPT", "GDevelop.io"],
+      ["Blender", "Substance Painter"],
+      ["Autodesk Maya", "Zbursh"],
+      ["Unreal Engine", "Unity"],
+      ["Unreal Engine", "Project"]
     ],
     true
   ),
